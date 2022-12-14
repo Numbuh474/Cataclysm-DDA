@@ -1,7 +1,6 @@
 {
   "id": "bearcub",
   "type": "vehicle",
-  "//": "A humvee like vehicle with an extended trunk.  Used heavily by Xedra cover agencies.",
   "name": "Border Enforcement Bearcub",
   "blueprint": [
     [ "O----++-OH" ],

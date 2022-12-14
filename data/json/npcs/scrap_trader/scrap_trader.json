@@ -16,7 +16,7 @@
     "id": "SCRAP_MERCHANT",
     "name": { "str": "Merchant" },
     "job_description": "I'm a local shopkeeper.",
-    "common": false,
+    "common": true,
     "sells_belongings": false,
     "bonus_str": 4,
     "traits": [
@@ -32,9 +32,7 @@
       { "trait": "ADRENALINE" },
       { "trait": "NARCOLEPTIC" },
       { "trait": "PROJUNK" },
-      { "trait": "MOODSWINGS" },
-      { "trait": "NO_BASH" },
-      { "trait": "RETURN_TO_START_POS" }
+      { "trait": "MOODSWINGS" }
     ],
     "skills": [
       { "skill": "ALL", "level": { "sum": [ { "dice": [ 1, 2 ] }, { "constant": -1 } ] } },

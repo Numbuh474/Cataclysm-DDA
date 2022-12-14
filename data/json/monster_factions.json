@@ -27,7 +27,8 @@
     "type": "MONSTER_FACTION",
     "name": "zombie",
     "friendly": [ "slime" ],
-    "neutral": [ "cult", "small_animal", "fish", "aquatic_predator", "passive_machine", "nether_player_hate" ]
+    "neutral": [ "cult", "small_animal", "fish", "insect", "aquatic_predator", "passive_machine", "nether_player_hate" ],
+    "by_mood": [ "ant", "acid_ant", "bee", "wasp", "stag_beetle" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -58,7 +59,7 @@
   {
     "type": "MONSTER_FACTION",
     "name": "animal",
-    "neutral": [ "small_animal", "fish", "bot", "aquatic_predator", "robofac", "passive_machine", "nether_player_hate" ],
+    "neutral": [ "small_animal", "fish", "bot", "aquatic_predator", "robofac", "passive_machine" ],
     "by_mood": [ "animal" ]
   },
   {
@@ -164,7 +165,6 @@
     "//": "These creatures aren't necessarily sentient in and of themselves or are drawn to sentient life in and around dimensional breaches.",
     "base_faction": "nether",
     "friendly": [ "zombie" ],
-    "neutral": [ "animal" ],
     "hate": [ "player" ]
   },
   {
@@ -352,7 +352,7 @@
   {
     "type": "MONSTER_FACTION",
     "name": "insect",
-    "neutral": [ "fish", "bot", "aquatic_predator" ],
+    "neutral": [ "fish", "bot", "zombie", "aquatic_predator" ],
     "by_mood": [ "insect" ]
   },
   {
@@ -364,13 +364,16 @@
     "type": "MONSTER_FACTION",
     "name": "wasp",
     "base_faction": "insect",
-    "by_mood": [ "fungus", "ant", "acid_ant", "bee" ],
+    "neutral": [ "spider", "centipede" ],
+    "by_mood": [ "zombie", "fungus", "ant", "acid_ant", "bee" ],
     "hate": [ "insect", "small_animal" ]
   },
   {
     "type": "MONSTER_FACTION",
     "name": "bee",
     "base_faction": "insect",
+    "neutral": [ "spider", "centipede" ],
+    "by_mood": [ "zombie", "fungus" ],
     "friendly": [ "plant" ]
   },
   {
@@ -395,6 +398,7 @@
     "type": "MONSTER_FACTION",
     "name": "centipede",
     "base_faction": "insect",
+    "neutral": [ "spider", "bee", "wasp" ],
     "hate": [ "insect", "animal" ]
   },
   {
@@ -407,6 +411,7 @@
     "type": "MONSTER_FACTION",
     "name": "spider",
     "base_faction": "insect",
+    "neutral": [ "centipede", "bee", "wasp" ],
     "hate": [ "insect", "animal" ],
     "by_mood": [ "spider" ]
   },
@@ -447,6 +452,7 @@
     "type": "MONSTER_FACTION",
     "name": "ant",
     "base_faction": "insect",
+    "by_mood": [ "zombie", "fungus" ],
     "friendly": [ "aphid" ],
     "neutral": [ "stag_beetle_larva" ]
   },
@@ -454,6 +460,7 @@
     "type": "MONSTER_FACTION",
     "name": "acid_ant",
     "base_faction": "insect",
+    "by_mood": [ "zombie", "fungus" ],
     "neutral": [ "aphid", "stag_beetle_larva" ]
   },
   {
@@ -471,7 +478,8 @@
   {
     "type": "MONSTER_FACTION",
     "name": "stag_beetle",
-    "base_faction": "insect"
+    "base_faction": "insect",
+    "by_mood": [ "zombie" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -483,7 +491,7 @@
     "type": "MONSTER_FACTION",
     "name": "antlion_grub",
     "base_faction": "insect",
-    "neutral": [ "antlion_grub", "antlion_adult" ],
+    "neutral": [ "antlion_grub", "antlion_adult", "zombie" ],
     "by_mood": [ "fungus", "bee" ],
     "hate": [ "insect", "small_animal", "ant", "acid_ant" ]
   },

@@ -402,7 +402,7 @@
   {
     "id": "druid_feralform_plus",
     "type": "SPELL",
-    "name": "Enhanced Feral Form",
+    "name": "Feral Form",
     "description": "This spell unleashes your inner beast, growing claws & fangs to rend your foes limb from limb.  Now you know this spell like the back of your hand, and start to design your own version.",
     "valid_targets": [ "self" ],
     "effect": "spawn_item",

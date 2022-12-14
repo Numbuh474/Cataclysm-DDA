@@ -169,8 +169,7 @@ struct talk_response {
     talk_effect_t<dialogue> success;
     talk_effect_t<dialogue> failure;
 
-    talk_data create_option_line( const dialogue &d, const input_event &hotkey,
-                                  bool is_computer = false );
+    talk_data create_option_line( const dialogue &d, const input_event &hotkey );
     std::set<dialogue_consequence> get_consequences( const dialogue &d ) const;
 
     talk_response();

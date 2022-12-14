@@ -86,9 +86,6 @@ bool monster::is_immune_field( const field_type_id &fid ) const
     if( fid == fd_web ) {
         return has_flag( MF_WEBWALK );
     }
-    if( fid == fd_sludge || fid == fd_sap ) {
-        return flies();
-    }
     const field_type &ft = fid.obj();
     if( ft.has_fume ) {
         return has_flag( MF_NO_BREATHE );
@@ -1761,33 +1758,32 @@ bool monster::move_to( const tripoint &p, bool force, bool step_on_critter,
     if( !will_be_water && ( digs() || can_dig() ) ) {
         underwater = here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, pos() );
     }
-
-    // Digging creatures leave a trail of churned earth
-    // They always leave some on their tile, and larger creatures emit some around themselves as well
+    // Diggers turn the dirt into dirtmound
     if( digging() && here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, pos() ) ) {
         int factor = 0;
         switch( type->size ) {
+            case creature_size::tiny:
+                factor = 100;
+                break;
+            case creature_size::small:
+                factor = 30;
+                break;
             case creature_size::medium:
-                factor = 4;
+                factor = 6;
                 break;
             case creature_size::large:
                 factor = 3;
                 break;
             case creature_size::huge:
-                factor = 2;
+                factor = 1;
                 break;
             case creature_size::num_sizes:
                 debugmsg( "ERROR: Invalid Creature size class." );
                 break;
-            default:
-                factor = 4;
-                break;
         }
-        here.add_field( pos(), fd_churned_earth, 2 );
-        for( const tripoint &dest : here.points_in_radius( pos(), 1, 0 ) ) {
-            if( here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, dest ) && one_in( factor ) ) {
-                here.add_field( dest, fd_churned_earth, 2 );
-            }
+        // TODO: make this take terrain type into account so diggers traveling under sand will create mounds of sand etc.
+        if( one_in( factor ) ) {
+            here.ter_set( pos(), t_dirtmound );
         }
     }
 
@@ -1966,7 +1962,7 @@ bool monster::push_to( const tripoint &p, const int boost, const size_t depth )
     Character &player_character = get_player_character();
     // Only print the message when near player or it can get spammy
     if( rl_dist( player_character.pos(), pos() ) < 4 ) {
-        add_msg_if_player_sees( *critter, m_warning, _( "The %1$s tramples %2$s." ),
+        add_msg_if_player_sees( *critter, m_warning, _( "The %1$s tramples %2$s" ),
                                 name(), critter->disp_name() );
     }
 

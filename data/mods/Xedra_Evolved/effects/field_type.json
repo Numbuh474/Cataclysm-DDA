@@ -2,7 +2,6 @@
   {
     "id": "fd_mirrored",
     "type": "field_type",
-    "//": "Similar effect to Angle Dog Fog.",
     "intensity_levels": [
       {
         "name": "rainbow glimmer",

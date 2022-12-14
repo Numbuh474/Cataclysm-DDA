@@ -28,8 +28,7 @@
       "r": "f_rack",
       "F": "f_vending_c",
       "v": "f_vending_c",
-      "Z": "f_console_broken",
-      "N": "f_bulletin"
+      "Z": "f_console_broken"
     },
     "terrain": {
       "$": "t_carpet_green",

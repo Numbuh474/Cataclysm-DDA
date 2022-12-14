@@ -301,9 +301,7 @@ void scen_blacklist::load_scen_blacklist( const JsonObject &jo, const std::strin
 void scen_blacklist::load( const JsonObject &jo, const std::string & )
 {
     if( !scenarios.empty() ) {
-        DebugLog( D_INFO, DC_ALL ) <<
-                                   "Attempted to load scenario blacklist with an existing scenario blacklist, resetting blacklist info";
-        reset_scenarios_blacklist();
+        jo.throw_error( "Attempted to load scenario blacklist with an existing scenario blacklist" );
     }
 
     const std::string bl_stype = jo.get_string( "subtype" );

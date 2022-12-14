@@ -112,14 +112,13 @@ if (TILES)
         target_link_libraries(cataclysm-tiles-common PUBLIC SDL2::SDL2
             SDL2::SDL2main
             SDL2::SDL2_image
-            SDL2::SDL2_ttf)
+            $<IF:$<TARGET_EXISTS:SDL2_ttf::SDL2_ttf>,SDL2_ttf::SDL2_ttf,SDL2_ttf::SDL2_ttf-static>)
     endif()
     if (SOUND)
         if (VCPKG_MANIFEST_MODE)
             find_package(Ogg REQUIRED)
             find_package(Vorbis REQUIRED)
-            # SDL2_mixer::SDL2_mixer-static = TODO x64-mingw-static ?
-            target_link_libraries(cataclysm-tiles-common PUBLIC SDL2::SDL2_mixer
+            target_link_libraries(cataclysm-tiles-common PUBLIC SDL2_mixer::SDL2_mixer-static
                 Ogg::ogg
                 Vorbis::vorbis)
         endif()
@@ -141,9 +140,6 @@ if (TILES)
         target_link_libraries(cataclysm-tiles-common PUBLIC oleaut32.lib)
         target_link_libraries(cataclysm-tiles-common PUBLIC version.lib)
         target_link_libraries(cataclysm-tiles-common PUBLIC setupapi.lib)
-        if (SOUND)
-            target_link_libraries(cataclysm-tiles-common PUBLIC shlwapi.lib)
-        endif()
         if (BACKTRACE)
             target_link_libraries(cataclysm-tiles-common PUBLIC dbghelp.lib)
             if (LIBBACKTRACE)
@@ -153,7 +149,7 @@ if (TILES)
     endif ()
 
     if (LIBBACKTRACE)
-        target_link_libraries(cataclysm-tiles-common PUBLIC backtrace)
+        target_link_libraries(cataclysm-tiles-common backtrace)
     endif ()
 
     if (RELEASE)

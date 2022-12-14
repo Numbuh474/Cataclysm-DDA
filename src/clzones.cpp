@@ -626,7 +626,7 @@ bool zone_data::set_type()
 }
 
 void zone_data::set_position( const std::pair<tripoint, tripoint> &position,
-                              const bool manual, bool update_avatar, bool skip_cache_update )
+                              const bool manual, bool update_avatar )
 {
     if( is_vehicle && manual ) {
         debugmsg( "Tried moving a lootzone bound to a vehicle part" );
@@ -635,9 +635,7 @@ void zone_data::set_position( const std::pair<tripoint, tripoint> &position,
     start = position.first;
     end = position.second;
 
-    if( !skip_cache_update ) {
-        zone_manager::get_manager().cache_data( update_avatar );
-    }
+    zone_manager::get_manager().cache_data( update_avatar );
 }
 
 void zone_data::set_enabled( const bool enabled_arg )
@@ -1151,6 +1149,7 @@ void zone_manager::create_vehicle_loot_zone( vehicle &vehicle, const point &moun
     auto nz = vehicle.loot_zones.emplace( mount_point, new_zone );
     map &here = pmap == nullptr ? get_map() : *pmap;
     here.register_vehicle_zone( &vehicle, here.get_abs_sub().z() );
+    vehicle.zones_dirty = false;
     added_vzones.push_back( &nz->second );
     cache_vzones( pmap );
 }
@@ -1538,6 +1537,7 @@ void zone_manager::revert_vzones()
                     zone.get_start_point() ) ).part_with_feature( "CARGO", false ) ) {
             zone.set_is_vehicle( true );
             vp->vehicle().loot_zones.emplace( vp->mount(), zone );
+            vp->vehicle().zones_dirty = false;
             here.register_vehicle_zone( &vp->vehicle(), here.get_abs_sub().z() );
             cache_vzones();
         }

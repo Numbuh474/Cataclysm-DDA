@@ -331,7 +331,6 @@ class talker
             return {};
         }
         virtual void i_add( const item & ) {}
-        virtual void i_add_or_drop( item & ) {}
         virtual void remove_items_with( const std::function<bool( const item & )> & ) {}
         virtual bool unarmed_attack() const {
             return false;

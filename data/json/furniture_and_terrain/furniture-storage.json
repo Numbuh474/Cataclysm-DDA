@@ -1241,7 +1241,7 @@
     "move_cost_mod": 3,
     "coverage": 70,
     "required_str": 16,
-    "flags": [ "CONTAINER", "PLACE_ITEM", "BLOCKSDOOR", "HIDE_PLACE", "NO_SIGHT", "FIRE_CONTAINER" ],
+    "flags": [ "CONTAINER", "PLACE_ITEM", "BLOCKSDOOR", "HIDE_PLACE", "NO_SIGHT" ],
     "bash": {
       "str_min": 8,
       "str_max": 45,

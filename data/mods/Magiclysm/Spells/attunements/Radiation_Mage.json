@@ -5,7 +5,7 @@
     "name": "Shortwave",
     "description": "Cook nearby monsters (and yourself to an extent).",
     "valid_targets": [ "hostile", "ground", "self" ],
-    "flags": [ "SOMATIC", "MUST_HAVE_CLASS_TO_LEARN", "NO_HANDS" ],
+    "flags": [ "SOMATIC", "MUST_HAVE_CLASS_TO_LEARN" ],
     "effect": "attack",
     "shape": "blast",
     "damage_type": "pure",

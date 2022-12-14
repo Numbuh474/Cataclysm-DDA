@@ -22,11 +22,7 @@
     "name": "mi-go mutagen",
     "description": "An extremely rare mutagen cocktail, it smells of sulphur and glows orange.",
     "price": 500000,
-    "use_action": {
-      "type": "consume_drug",
-      "activation_message": "You drink the mi-go mutagen.",
-      "vitamins": [ [ "mutagen_migo", 175 ], [ "mutagen", 125 ] ]
-    }
+    "vitamins": [ [ "mutagen_migo", 175 ], [ "mutagen", 125 ] ]
   },
   {
     "id": "iv_mutagen_mastodon",
@@ -51,10 +47,6 @@
     "name": { "str": "mastodon mutagen" },
     "description": "An extremely rare mutagen cocktail, it seeks to cure what's deep inside.",
     "price": 500000,
-    "use_action": {
-      "type": "consume_drug",
-      "activation_message": "You drink the mastodon mutagen.",
-      "vitamins": [ [ "mutagen_mastodon", 175 ], [ "mutagen", 125 ] ]
-    }
+    "vitamins": [ [ "mutagen_mastodon", 175 ], [ "mutagen", 125 ] ]
   }
 ]

@@ -94,7 +94,6 @@
 #include "speed_description.h"
 #include "start_location.h"
 #include "string_formatter.h"
-#include "test_data.h"
 #include "text_snippets.h"
 #include "translations.h"
 #include "trap.h"
@@ -374,7 +373,7 @@ void DynamicDataLoader::initialize()
 
     add( "charge_removal_blacklist", load_charge_removal_blacklist );
     add( "charge_migration_blacklist", load_charge_migration_blacklist );
-    add( "test_data", &test_data::load );
+    add( "known_bad_density_list", &known_bad_density::load );
 
     add( "MONSTER", []( const JsonObject & jo, const std::string & src ) {
         MonsterGenerator::generator().load_monster( jo, src );
