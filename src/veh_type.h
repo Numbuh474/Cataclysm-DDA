@@ -457,7 +457,7 @@ class vpart_info
          * Energy consumed per second by engines and motors when delivering max @ref power
          * Includes waste. Gets scaled based on powertrain demand.
          */
-        units::power energy_consumption = 0_W;
+        units::energy energy_consumption = 0_J;
 
         /**
          * For engines and motors this is maximum output (watts)
@@ -473,12 +473,7 @@ class vpart_info
          *  default is half @ref install_moves */
         int removal_moves = -1;
 
-        // seatbelt (str, currently non-functional #30239)
-        // muffler (% noise reduction)
-        // horn (sound volume)
-        // light (intensity)
-        // recharging (charging speed in watts)
-        // funnel (water collection area in mm^2)
+        /** seatbelt (str), muffler (%), horn (vol), light (intensity), recharging (power) */
         int bonus = 0;
 
         /** cargo weight modifier (percentage) */

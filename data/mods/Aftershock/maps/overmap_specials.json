@@ -16,8 +16,7 @@
     "locations": [ "land" ],
     "city_distance": [ 5, -1 ],
     "city_sizes": [ 0, -1 ],
-    "occurrences": [ 0, 1 ],
-    "flags": [ "EXOPLANET" ]
+    "occurrences": [ 0, 1 ]
   },
   {
     "id": "municipal_reactor",
@@ -110,6 +109,6 @@
       { "point": [ 0, 0, 0 ], "overmap": "robot_dispatch_first_north" },
       { "point": [ 0, 0, 1 ], "overmap": "robot_dispatch_second_north" }
     ],
-    "flags": [ "MAN_MADE", "EXOPLANET" ]
+    "flags": [ "MAN_MADE" ]
   }
 ]

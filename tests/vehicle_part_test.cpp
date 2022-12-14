@@ -135,11 +135,9 @@ static void test_craft_via_rig( const std::vector<item> &items, int give_battery
     for( const item &i : items ) {
         character.i_add( i );
     }
-    // Shift skill levels by one to ensure successful crafting
-    // after the change in https://github.com/CleverRaven/Cataclysm-DDA/pull/61985
-    character.set_skill_level( recipe.skill_used, recipe.difficulty + 1 );
+    character.set_skill_level( recipe.skill_used, recipe.difficulty );
     for( const std::pair<skill_id, int> req : recipe.required_skills ) {
-        character.set_skill_level( req.first, req.second + 1 );
+        character.set_skill_level( req.first, req.second );
     }
     for( const recipe_proficiency &prof : recipe.proficiencies ) {
         character.add_proficiency( prof.id );

@@ -3916,7 +3916,7 @@ void item::armor_info( std::vector<iteminfo> &info, const iteminfo_query *parts,
             item tmp = *this;
 
             //no need to clutter the ui with inactive versions when the armor is already active
-            if( !( active || ( type->tool && type->tool->power_draw > 0_W ) ) ) {
+            if( !( active || ( type->tool && type->tool->power_draw > 0_J ) ) ) {
                 bool print_prot = true;
                 if( parts->test( iteminfo_parts::ARMOR_PROTECTION ) ) {
                     print_prot = !tmp.armor_full_protection_info( info, parts );
@@ -10823,9 +10823,8 @@ int item::ammo_remaining( const Character *carrier ) const
         ret += units::to_kilojoule( carrier->get_power_level() );
     }
 
-    std::set<ammotype> ammo = ammo_types();
     // Non ammo using item that uses charges
-    if( ammo.empty() ) {
+    if( ammo_types().empty() ) {
         ret += charges;
     }
 
@@ -10844,11 +10843,9 @@ int item::ammo_remaining( const Character *carrier ) const
     }
 
     // Handle non-magazines with ammo_restriction in a CONTAINER type pocket (like quivers)
-    if( !( mag || is_magazine() || ammo.empty() ) ) {
+    if( !ammo_types().empty() ) {
         for( const item *e : contents.all_items_top( item_pocket::pocket_type::CONTAINER ) ) {
-            if( e->is_ammo() && ammo.find( e->ammo_type() ) != ammo.end() ) {
-                ret += e->charges;
-            }
+            ret += e->charges;
         }
     }
     return ret;
@@ -10968,8 +10965,8 @@ int item::ammo_consume( int qty, const tripoint &pos, Character *carrier )
 
     // Consume UPS power from various sources
     if( carrier != nullptr && has_flag( flag_USE_UPS ) ) {
-        units::energy energy_draw = units::from_kilojoule( qty );
-        qty -= units::to_kilojoule( carrier->consume_ups( energy_draw ) );
+        units::energy power_draw = units::from_kilojoule( qty );
+        qty -= units::to_kilojoule( carrier->consume_ups( power_draw ) );
     }
 
     // Consume bio pwr directly
@@ -13338,7 +13335,7 @@ bool item::process_tool( Character *carrier, const tripoint &pos )
 
     avatar &player_character = get_avatar();
     // if insufficient available charges shutdown the tool
-    if( ( type->tool->turns_per_charge > 0 || type->tool->power_draw > 0_W ) &&
+    if( ( type->tool->turns_per_charge > 0 || type->tool->power_draw > 0_J ) &&
         ammo_remaining( carrier ) == 0 ) {
         if( carrier && has_flag( flag_USE_UPS ) ) {
             carrier->add_msg_if_player( m_info, _( "You need an UPS to run the %s!" ), tname() );
@@ -13362,12 +13359,12 @@ bool item::process_tool( Character *carrier, const tripoint &pos )
     if( type->tool->turns_per_charge > 0 &&
         to_turn<int>( calendar::turn ) % type->tool->turns_per_charge == 0 ) {
         energy = std::max( ammo_required(), 1 );
-    } else if( type->tool->power_draw > 0_W ) {
+    } else if( type->tool->power_draw > 0_J ) {
         // kJ (battery unit) per second
-        energy = units::to_kilowatt( type->tool->power_draw );
+        energy = units::to_kilojoule( type->tool->power_draw );
         // energy_bat remainder results in chance at additional charge/discharge
-        const int kw_in_mw = units::to_milliwatt( 1_kW );
-        energy += x_in_y( units::to_milliwatt( type->tool->power_draw ) % kw_in_mw, kw_in_mw ) ? 1 : 0;
+        const int kj_in_mj = units::to_millijoule( 1_kJ );
+        energy += x_in_y( units::to_millijoule( type->tool->power_draw ) % kj_in_mj, kj_in_mj ) ? 1 : 0;
     }
 
     if( energy > 0 ) {

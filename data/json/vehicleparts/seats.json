@@ -49,7 +49,7 @@
         "using": [ [ "repair_welding_standard", 1 ], [ "sewing_standard", 8 ] ]
       }
     },
-    "size": "25 L",
+    "size": 100,
     "symbol": "#",
     "type": "vehicle_part"
   },
@@ -89,7 +89,7 @@
         "using": [ [ "repair_welding_standard", 1 ], [ "sewing_standard", 8 ] ]
       }
     },
-    "size": "6250 ml",
+    "size": 25,
     "symbol": "#",
     "type": "vehicle_part"
   },
@@ -129,7 +129,7 @@
         "using": [ [ "repair_welding_standard", 1 ], [ "sewing_standard", 8 ] ]
       }
     },
-    "size": "30 L",
+    "size": 120,
     "standard_symbols": false,
     "symbols": { "vertical": "#", "vertical_left": "#", "vertical_right": "#", "left": "#", "right": "#" },
     "type": "vehicle_part"
@@ -225,6 +225,7 @@
       "removal": { "skills": [ [ "mechanics", 2 ] ], "time": "30 m", "using": "vehicle_weld_removal" },
       "repair": { "skills": [ [ "mechanics", 2 ] ], "time": "60 m", "using": [ [ "repair_welding_standard", 3 ] ] }
     },
+    "size": 25,
     "symbol": "#",
     "type": "vehicle_part"
   },

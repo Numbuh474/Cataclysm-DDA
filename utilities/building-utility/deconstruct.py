@@ -38,7 +38,7 @@ def internal_append(list_of_lists, appends):
     shortest list is exhausted.
     '''
 
-    return [lst + [a] for lst, a in zip(list_of_lists, appends)]
+    return [l + [a] for l, a in zip(list_of_lists, appends)]
 
 
 def get_map_cells(infile, cell_size):
