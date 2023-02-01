@@ -204,7 +204,6 @@ void printHelpMessage( const FirstPassArgs &first_pass_arguments,
     }
 }
 
-
 /**
  * Displays current application version and compile options values
  */

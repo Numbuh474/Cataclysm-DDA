@@ -122,6 +122,18 @@
   {
     "type": "BOOK",
     "copy-from": "spell_scroll",
+<<<<<<< HEAD
+=======
+    "id": "spell_scroll_devour",
+    "//": "Animist spell",
+    "name": { "str": "Scroll of Devour", "str_pl": "Scrolls of Devour" },
+    "description": "Kill a summoned creature, consuming its life energy to regain some health.",
+    "use_action": { "type": "learn_spell", "spells": [ "devour" ] }
+  },
+  {
+    "type": "BOOK",
+    "copy-from": "spell_scroll",
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
     "id": "spell_scroll_summon_floating_disk",
     "name": { "str": "Scroll of Summon Floating Disk", "str_pl": "Scrolls of Summon Floating Disk" },
     "description": "Summons a floating disk that is sworn to carry your burdens.",

@@ -81,7 +81,6 @@ static const trait_id trait_NOPAIN( "NOPAIN" );
 static const trait_id trait_SAPROPHAGE( "SAPROPHAGE" );
 static const trait_id trait_SAPROVORE( "SAPROVORE" );
 
-
 using item_filter = std::function<bool ( const item & )>;
 using item_location_filter = std::function<bool ( const item_location & )>;
 
@@ -1084,7 +1083,6 @@ class activatable_inventory_preset : public pickup_inventory_preset
             if( it.is_broken() ) {
                 return string_format( _( "Your %s was broken and won't turn on." ), it.tname() );
             }
-
 
             if( uses.size() == 1 &&
                 !it.ammo_sufficient( &you, uses.begin()->first ) ) {

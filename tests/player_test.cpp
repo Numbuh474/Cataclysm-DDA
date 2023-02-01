@@ -36,6 +36,30 @@ static void temperature_check( Character *p, const int ambient_temp, const int t
     CHECK( high > p->get_part_temp_cur( bodypart_id( "torso" ) ) );
 }
 
+<<<<<<< HEAD
+=======
+// Set the stage for a particular ambient and target temperature and run update_bodytemp() until
+// core body temperature settles.
+static void temperature_and_sweat_check( Character *p, const int ambient_temp,
+        const int target_temp )
+{
+
+    weather_manager &weather = get_weather();
+
+    weather.temperature = units::from_fahrenheit( ambient_temp );
+
+    for( int i = 0; i < 1000; i++ ) {
+        p->process_effects();
+        p->update_bodytemp();
+        p->update_body_wetness( *weather.weather_precise );
+    }
+    int high = target_temp + 100;
+    int low = target_temp - 100;
+    CHECK( low < p->get_part_temp_cur( bodypart_id( "torso" ) ) );
+    CHECK( high > p->get_part_temp_cur( bodypart_id( "torso" ) ) );
+}
+
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
 static void equip_clothing( Character *p, const std::string &clothing )
 {
     const item article( clothing, calendar::turn_zero );
@@ -126,3 +150,39 @@ TEST_CASE( "player body temperatures converge on expected values.", "[.bodytemp]
         test_temperature_spread( &dummy, {{ -115, -87, -54, -6, 36, 64, 80 }} );
     }
 }
+<<<<<<< HEAD
+=======
+
+TEST_CASE( "sweating", "[char][suffer][.bodytemp]" )
+{
+    avatar &dummy = get_avatar();
+    clear_character( dummy );
+
+    // three different materials of breathability, same warmth
+    item fur_jumper( "test_jumpsuit_fur" );
+    item lycra_jumper( "test_jumpsuit_lycra" );
+    item cotton_jumper( "test_jumpsuit_cotton" );
+
+    GIVEN( "avatar wears outfit and sweats for an hour" ) {
+        WHEN( "wearing fur" ) {
+            dummy.worn.clear();
+            dummy.wear_item( fur_jumper, false );
+
+            temperature_and_sweat_check( &dummy, 100, 8100 );
+        }
+        WHEN( "wearing cotton" ) {
+            dummy.worn.clear();
+            dummy.wear_item( cotton_jumper, false );
+
+            temperature_and_sweat_check( &dummy, 100, 7900 );
+        }
+        WHEN( "wearing lycra" ) {
+            dummy.worn.clear();
+            dummy.wear_item( lycra_jumper, false );
+
+            temperature_and_sweat_check( &dummy, 100, 7000 );
+        }
+
+    }
+}
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24

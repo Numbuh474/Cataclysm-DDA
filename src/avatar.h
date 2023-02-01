@@ -67,6 +67,15 @@ struct monster_visible_info {
 
     // If the monster visible in this direction is dangerous
     std::array<bool, 8> dangerous = {};
+<<<<<<< HEAD
+=======
+
+    // Whether or not there is at last one creature within safemode proximity that
+    // is dangerous
+    bool has_dangerous_creature_in_proximity = false;
+
+    void remove_npc( npc *n );
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
 };
 
 class avatar : public Character

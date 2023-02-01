@@ -246,6 +246,7 @@
     "type": "item_group",
     "copy-from": "SUS_junk_drawer",
     "subtype": "collection",
+<<<<<<< HEAD
     "extend": {
       "items": [
         [ "fire_ball", 5 ],
@@ -260,12 +261,16 @@
         [ "magick_8_ball", 1 ]
       ]
     }
+=======
+    "extend": { "entries": [ { "group": "xe_all_spells_mid", "prob": 50 } ] }
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
   },
   {
     "id": "SUS_junk_drawer_messy",
     "type": "item_group",
     "copy-from": "SUS_junk_drawer_messy",
     "subtype": "collection",
+<<<<<<< HEAD
     "extend": {
       "items": [
         [ "fire_ball", 1 ],
@@ -280,12 +285,16 @@
         [ "magick_8_ball", 1 ]
       ]
     }
+=======
+    "extend": { "entries": [ { "group": "xe_all_spells_mid", "prob": 50 } ] }
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
   },
   {
     "id": "SUS_office_filing_cabinet",
     "type": "item_group",
     "copy-from": "SUS_office_filing_cabinet",
     "subtype": "collection",
+<<<<<<< HEAD
     "extend": {
       "items": [
         [ "hurricane_lamp_thorns", 5 ],
@@ -300,6 +309,9 @@
         [ "occult_seal", 1 ]
       ]
     }
+=======
+    "extend": { "entries": [ { "group": "xe_all_spells_mid", "prob": 50 } ] }
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
   },
   {
     "id": "costume_misc_items",

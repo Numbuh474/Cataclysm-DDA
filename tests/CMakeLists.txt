@@ -32,8 +32,15 @@ if (BUILD_TESTING)
 
     if (TILES)
         add_executable(cata_test-tiles ${CATACLYSM_DDA_TEST_SOURCES})
+<<<<<<< HEAD
         add_dependencies(cata_test-tiles test_mo)
         target_link_libraries(cata_test-tiles cataclysm-tiles-common)
+=======
+        if (LOCALIZE)
+            add_dependencies(cata_test-tiles test_mo)
+        endif()
+        target_link_libraries(cata_test-tiles PRIVATE cataclysm-tiles-common)
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
         add_test(NAME test-tiles
                 COMMAND sh -c
                 "$<TARGET_FILE:cata_test-tiles> --rng-seed time"
@@ -42,8 +49,15 @@ if (BUILD_TESTING)
 
     if (CURSES)
         add_executable(cata_test ${CATACLYSM_DDA_TEST_SOURCES})
+<<<<<<< HEAD
         add_dependencies(cata_test test_mo)
         target_link_libraries(cata_test cataclysm-common)
+=======
+        if (LOCALIZE)
+            add_dependencies(cata_test test_mo)
+        endif()
+        target_link_libraries(cata_test PRIVATE cataclysm-common)
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
         add_test(NAME test
                 COMMAND sh -c
                 "$<TARGET_FILE:cata_test> --rng-seed time"

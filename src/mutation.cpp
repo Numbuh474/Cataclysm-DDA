@@ -1214,7 +1214,6 @@ bool Character::mutate_towards( const trait_id &mut, const mutation_category_id 
     bool mut_has_prereq1 = !mdata.prereqs.empty();
     bool mut_has_prereq2 = !mdata.prereqs2.empty();
 
-
     // Check mutations of the same type - except for the ones we might need for pre-reqs
     for( const auto &consider : same_type ) {
         if( std::find( all_prereqs.begin(), all_prereqs.end(), consider ) == all_prereqs.end() ) {
@@ -1523,7 +1522,6 @@ bool Character::mutate_towards( const trait_id &mut, const mutation_category_id 
         }
         get_event_bus().send<event_type::gains_mutation>( getID(), mdata.id );
     }
-
 
     // If the mutation is a dummy mutation, back out at the last minute
     if( !mdata.dummy ) {
@@ -2008,7 +2006,6 @@ std::string Character::mutation_desc( const trait_id &mut ) const
 
     return mut->desc();
 }
-
 
 void Character::customize_appearance( customize_appearance_choice choice )
 {

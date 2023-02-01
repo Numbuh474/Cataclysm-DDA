@@ -51,7 +51,11 @@ item_location titled_menu( avatar &you, const std::string &title,
 item_location titled_filter_menu( const item_filter &filter, avatar &you,
                                   const std::string &title, const std::string &none_message = "" );
 item_location titled_filter_menu( const item_location_filter &filter, avatar &you,
+<<<<<<< HEAD
                                   const std::string &title, const std::string &none_message = "" );
+=======
+                                  const std::string &title, int radius = -1, const std::string &none_message = "" );
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
 
 /**
 * @name Customized inventory menus

@@ -143,7 +143,7 @@ void mission_start::kill_nemesis( mission * )
 
     size_t attempt = 0;
     do {
-        if( ++attempt >= attempts_multipliers.size() ) {
+        if( attempt++ >= attempts_multipliers.size() ) {
             debugmsg( "Failed adding a nemesis mission" );
             return;
         }
@@ -152,7 +152,6 @@ void mission_start::kill_nemesis( mission * )
     } while( site == overmap::invalid_tripoint );
     overmap_buffer.add_nemesis( site );
 }
-
 
 /*
  * Find a location to place a computer.  In order, prefer:

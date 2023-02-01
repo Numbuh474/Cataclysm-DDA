@@ -795,6 +795,7 @@ class npc : public Character
          * See @ref dialogue_chatbin::add_new_mission
          */
         void add_new_mission( mission *miss );
+        void update_missions_target( character_id old_character, character_id new_character );
         std::pair<skill_id, int> best_combat_skill( combat_skills subset ) const;
         void starting_weapon( const npc_class_id &type );
 
@@ -818,6 +819,10 @@ class npc : public Character
         // Interaction with the player
         void form_opinion( const Character &you );
         std::string pick_talk_topic( const Character &u );
+<<<<<<< HEAD
+=======
+        std::string const &get_specified_talk_topic( std::string const &topic_id );
+>>>>>>> b549a17ae02856aa10b883697b2f6a3f615f2b24
         float character_danger( const Character &u ) const;
         float vehicle_danger( int radius ) const;
         void pretend_fire( npc *source, int shots, item &gun ); // fake ranged attack for hallucination
@@ -1113,7 +1118,7 @@ class npc : public Character
 
         void update_cardio_acc() override {};
 
-        void aim( Target_attributes target_attributes );
+        void aim( const Target_attributes &target_attributes );
         void do_reload( const item_location &it );
 
         // Physical movement from one tile to the next
@@ -1159,9 +1164,6 @@ class npc : public Character
         void find_item();
         // Move to, or grab, our targeted item
         void pick_up_item();
-        // Drop wgt and vol, including all items with less value than min_val
-        void drop_items( const units::mass &drop_weight, const units::volume &drop_volume,
-                         int min_val = 0 );
         /** Picks up items and returns a list of them. */
         std::list<item> pick_up_item_map( const tripoint &where );
         std::list<item> pick_up_item_vehicle( vehicle &veh, int part_index );
