@@ -64,7 +64,6 @@ static void drop_or_embed_projectile( const dealt_projectile_attack &attack )
         // copies the drop item to spill the contents
         item( drop_item ).spill_contents( pt );
 
-        // TODO: Non-glass breaking
         // TODO: Wine glass breaking vs. entire sheet of glass breaking
         sounds::sound( pt, 16, sounds::sound_t::combat, _( "glass breaking!" ), false, "bullet_hit",
                        "hit_glass" );
@@ -99,6 +98,15 @@ static void drop_or_embed_projectile( const dealt_projectile_attack &attack )
 
     // Copy the item
     item dropped_item = drop_item;
+
+    if( effects.count( "DAMAGE_SELF" ) ) {
+        if( dropped_item.inc_damage() ) {
+            add_msg_if_player_sees( pt, _( "The %s is destroyed by the force of the blow!" ), drop_item.tname() );
+            return;
+        } else {
+            add_msg_if_player_sees( pt, _( "The %s is damaged by the force of the blow!" ), drop_item.tname() );
+        }
+    }
 
     monster *mon = dynamic_cast<monster *>( attack.hit_critter );
 

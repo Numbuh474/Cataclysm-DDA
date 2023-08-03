@@ -1963,20 +1963,28 @@ static projectile make_gun_projectile( const item &gun )
 
     if( gun.ammo_data() ) {
         // Some projectiles have a chance of being recoverable
-        bool recover = std::any_of( fx.begin(), fx.end(), []( const std::string_view e ) {
-            if( !string_starts_with( e, "RECOVER_" ) ) {
-                return false;
-            }
-            ret_val<int> n = try_parse_integer<int>( e.substr( 8 ), false );
-            if( !n.success() ) {
-                debugmsg( "Error parsing ammo RECOVER_ denominator: %s", n.str() );
-                return false;
-            }
-            return !one_in( n.value() );
-        } );
+        const std::optional<int> recover = std::transform_reduce( fx.begin(), fx.end(),
+                                                            std::optional<int>( std::nullopt ),
+                                                            []( const std::optional<int> l, const std::optional<int> r ) {
+                                                                return l ? l :
+                                                                r; },
+                                                            []( const std::string_view e ) {
+                                                                if( !string_starts_with( e, "RECOVER_" ) ) {
+                                                                    return std::optional<int>( std::nullopt );
+                                                                }
+                                                            ret_val<int> n = try_parse_integer<int>( e.substr( 8 ), false );
+                                                            if( !n.success() ) {
+                                                                debugmsg( "Error parsing ammo RECOVER_ denominator: %s", n.str() );
+                                                                return std::optional<int>( std::nullopt );
+                                                            }
+                                                            return std::optional<int>( n.value() );
+                                                            } );
 
         if( recover && !fx.count( "IGNITE" ) && !fx.count( "EXPLOSIVE" ) ) {
             item drop( gun.ammo_current(), calendar::turn, 1 );
+            if ( one_in ( recover.value() ) ) {
+                fx.insert( "DAMAGE_SELF" );
+            }
             drop.active = fx.count( "ACT_ON_RANGED_HIT" );
             drop.set_favorite( gun.get_contents().first_ammo().is_favorite );
             proj.set_drop( drop );
