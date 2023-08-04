@@ -2577,6 +2577,7 @@ void islot_ammo::load( const JsonObject &jo )
     assign( jo, "effects", ammo_effects, strict );
     assign( jo, "critical_multiplier", critical_multiplier, strict, 1.0f );
     optional( jo, was_loaded, "show_stats", force_stat_display, false );
+    optional( jo, was_loaded, "durable", durable );
 }
 
 void islot_ammo::deserialize( const JsonObject &jo )

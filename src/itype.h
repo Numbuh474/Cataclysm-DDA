@@ -985,6 +985,11 @@ struct islot_ammo : common_ranged_data {
      */
     bool force_stat_display;
 
+    /**
+    * Whether to override count_by_charges for calculating damage to a single item.
+    */
+    bool durable = 0;
+
     bool was_loaded = false;
 
     void load( const JsonObject &jo );
@@ -1349,7 +1354,7 @@ struct itype {
         float solar_efficiency = 0.0f;
 
     private:
-        /** maximum amount of damage to a non- count_by_charges item */
+        /** maximum amount of damage to a non- count_by_charges, non-durable item */
         static constexpr int damage_max_ = 4000;
         int degrade_increments_ = 50;
 
@@ -1383,7 +1388,7 @@ struct itype {
         }
 
         int damage_max() const {
-            return count_by_charges() ? 0 : damage_max_;
+            return count_by_charges() && !( ammo && ammo->durable ) ? 0 : damage_max_;
         }
         /** Number of degradation increments before the item is destroyed */
         int degrade_increments() const {

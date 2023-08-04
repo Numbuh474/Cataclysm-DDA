@@ -14,7 +14,8 @@
     "color": "blue",
     "to_hit": -1,
     "ammo_type": "thrown",
-    "flags": [ "NOGIB", "TANGLE", "PRIMITIVE_RANGED_WEAPON" ]
+    "flags": [ "NOGIB", "TANGLE", "PRIMITIVE_RANGED_WEAPON" ],
+    "durable": true
   },
   {
     "type": "GENERIC",
@@ -29,8 +30,7 @@
     "material": [ "plastic" ],
     "volume": "250 ml",
     "weight": "170 g",
-    "thrown_damage": [ { "damage_type": "bash", "amount": 1 } ],
-    "melee_damage": { "bash": 2 }
+    "thrown_damage": [ { "damage_type": "bash", "amount": 1 } ]
   },
   {
     "type": "GENERIC",
@@ -63,7 +63,8 @@
     "color": "white",
     "to_hit": -2,
     "ammo_type": "thrown",
-    "flags": [ "NOGIB", "TANGLE", "PRIMITIVE_RANGED_WEAPON" ]
+    "flags": [ "NOGIB", "TANGLE", "PRIMITIVE_RANGED_WEAPON" ],
+    "durable": true
   },
   {
     "type": "GENERIC",
@@ -152,7 +153,8 @@
     "color": "brown",
     "ammo_type": "thrown",
     "flags": [ "NOGIB" ],
-    "melee_damage": { "bash": 5 }
+    "melee_damage": { "bash": 5 },
+    "durable": true
   },
   {
     "type": "GENERIC",

@@ -8758,7 +8758,7 @@ bool item::mod_damage( int qty )
     if( has_flag( flag_UNBREAKABLE ) ) {
         return false;
     }
-    if( count_by_charges() ) {
+    if( count_by_charges() && !( type->ammo && type->ammo->durable ) ) {
         charges -= std::min( type->stack_size * qty / itype::damage_scale, charges );
         return charges == 0; // return destroy = true if no charges
     } else {

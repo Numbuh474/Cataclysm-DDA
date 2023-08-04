@@ -2619,7 +2619,7 @@ class item : public visitable
          */
         bool is_upgrade() const;
         /*@}*/
-
+        /*@{*/
         /**
          * Returns the pointer to use_function with name use_name assigned to the type of
          * this item or any of its contents. Checks contents recursively.

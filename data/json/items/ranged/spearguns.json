@@ -20,7 +20,8 @@
     "loudness": 0,
     "count": 4,
     "effects": [ "RECOVER_5" ],
-    "melee_damage": { "bash": 1 }
+    "melee_damage": { "bash": 1 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -43,7 +44,8 @@
     "loudness": 0,
     "count": 4,
     "effects": [ "RECOVER_3" ],
-    "melee_damage": { "bash": 1 }
+    "melee_damage": { "bash": 1 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -66,7 +68,8 @@
     "loudness": 0,
     "count": 4,
     "effects": [ "RECOVER_15" ],
-    "melee_damage": { "bash": 1 }
+    "melee_damage": { "bash": 1 },
+    "durable": true
   },
   {
     "id": "airspeargun",

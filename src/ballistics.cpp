@@ -101,7 +101,7 @@ static void drop_or_embed_projectile( const dealt_projectile_attack &attack )
 
     if( effects.count( "DAMAGE_SELF" ) ) {
         if( dropped_item.inc_damage() ) {
-            add_msg_if_player_sees( pt, _( "The %s is destroyed by the force of the blow!" ), drop_item.tname() );
+            add_msg_if_player_sees( pt, _( "The %s is destroyed on impact!" ), drop_item.tname() );
             return;
         } else {
             add_msg_if_player_sees( pt, _( "The %s is damaged by the force of the blow!" ), drop_item.tname() );

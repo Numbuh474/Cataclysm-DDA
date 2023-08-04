@@ -19,7 +19,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_2" ],
-    "melee_damage": { "bash": 3 }
+    "melee_damage": { "bash": 3 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -42,7 +43,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_30" ],
-    "melee_damage": { "bash": 3 }
+    "melee_damage": { "bash": 3 },
+    "durable": true
   },
   {
     "id": "arrow_plastic",
@@ -63,7 +65,8 @@
     "loudness": 0,
     "count": 10,
     "effects": [ "RECOVER_35", "BEANBAG" ],
-    "melee_damage": { "bash": 2, "cut": 1 }
+    "melee_damage": { "bash": 2, "cut": 1 },
+        "durable": true
   },
   {
     "type": "AMMO",
@@ -85,7 +88,8 @@
     "loudness": 0,
     "count": 10,
     "effects": [ "RECOVER_10", "NOGIB" ],
-    "melee_damage": { "bash": 4 }
+    "melee_damage": { "bash": 4 },
+            "durable": true
   },
   {
     "type": "AMMO",
@@ -108,7 +112,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_25" ],
-    "melee_damage": { "bash": 2, "cut": 1 }
+    "melee_damage": { "bash": 2, "cut": 1 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -131,7 +136,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_6" ],
-    "melee_damage": { "bash": 4 }
+    "melee_damage": { "bash": 4 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -154,7 +160,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_35", "NOGIB" ],
-    "melee_damage": { "bash": 4 }
+    "melee_damage": { "bash": 4 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -178,7 +185,8 @@
     "show_stats": true,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_8" ],
-    "melee_damage": { "bash": 6, "cut": 2 }
+    "melee_damage": { "bash": 6, "cut": 2 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -202,7 +210,8 @@
     "show_stats": true,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_20" ],
-    "melee_damage": { "bash": 2 }
+    "melee_damage": { "bash": 2 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -226,7 +235,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_35" ],
-    "melee_damage": { "bash": 3, "cut": 2 }
+    "melee_damage": { "bash": 3, "cut": 2 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -250,7 +260,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_40" ],
-    "melee_damage": { "bash": 3, "cut": 2 }
+    "melee_damage": { "bash": 3, "cut": 2 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -274,7 +285,8 @@
     "count": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_45", "NOGIB" ],
-    "melee_damage": { "bash": 3, "cut": 2 }
+    "melee_damage": { "bash": 3, "cut": 2 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -299,7 +311,8 @@
     "stack_size": 10,
     "critical_multiplier": 10,
     "effects": [ "RECOVER_30" ],
-    "melee_damage": { "bash": 1 }
+    "melee_damage": { "bash": 1 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -326,7 +339,8 @@
     "effects": [ "RECOVER_1000000" ],
     "to_hit": { "grip": "solid", "length": "long", "surface": "point", "balance": "good" },
     "flags": [ "UNBREAKABLE_MELEE", "NONCONDUCTIVE" ],
-    "melee_damage": { "bash": 10, "stab": 26 }
+    "melee_damage": { "bash": 10, "stab": 26 },
+    "durable": true
   },
   {
     "type": "AMMO",
@@ -393,7 +407,8 @@
       "menu_text": "Light arrow",
       "type": "transform"
     },
-    "melee_damage": { "bash": 2 }
+    "melee_damage": { "bash": 2 },
+    "durable": true
   },
   {
     "type": "AMMO",
